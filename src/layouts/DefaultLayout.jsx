@@ -4,6 +4,7 @@ import Footer from './Footer'
 
 function DefaultLayout() {
     return <>
+
         <Header />
         <main>
             <Outlet />
