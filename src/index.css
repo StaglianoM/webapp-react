@@ -4,6 +4,12 @@
     box-sizing: border-box;
 }
 
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 body {
     background-color: rgb(199, 197, 197);
 }
@@ -26,7 +32,6 @@ ul {
     justify-content: space-between;
     align-items: center;
     margin-left: 20px;
-
 }
 
 .infoNav {
@@ -38,10 +43,44 @@ ul {
     padding: 5px 5px;
 }
 
-:hover {
+.containerFooter {
+    background-color: blue;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+}
+
+a:hover {
     color: rgb(161, 247, 218);
 }
 
+
 a.active {
+    color: rgb(87, 186, 243);
+}
+
+a {
+    text-decoration: none;
     color: white;
+}
+
+.grow {
+    flex-grow: 1;
+    padding-left: 25px;
+}
+
+.cardContainer {
+    border: gray solid 2px;
+    padding: 5px;
+    padding: 10px;
+    border-radius: 20px;
+    gap: 5px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding-top: 10px;
+    text-align: center;
+    gap: 15px;
 }

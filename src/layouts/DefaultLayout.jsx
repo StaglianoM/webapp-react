@@ -6,7 +6,7 @@ function DefaultLayout() {
     return <>
 
         <Header />
-        <main>
+        <main className='grow'>
             <Outlet />
         </main>
         <Footer />
