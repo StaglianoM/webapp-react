@@ -1,17 +1,25 @@
 import { Link } from "react-router-dom";
 
 function FilmCard({ films }) {
-    const { id, title, director, image } = films;
+    const { id, title, director, abstract, image } = films;
 
     return (
 
-        <div className="cardContainer">
-            <img src="" alt="" />
-            <div>
-                {title}
+        <article className="cardContainer">
+            <img src="../../public/movies_cover/inception.jpg" alt="" />
+            <div className="cardBody">
+                <h3 className="title">
+                    {title}
+                </h3>
+                <p className="director">
+                    {director}
+                </p>
+                <p className="abstract">
+                    {abstract}
+                </p>
+                <Link className='readMore' to={`/films/${id}`}>Read More</Link>
             </div>
-            <Link to={`/films/${id}`}>Test</Link>
-        </div>
+        </article >
     )
 }
 

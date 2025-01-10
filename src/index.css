@@ -69,18 +69,47 @@ a {
     padding-left: 25px;
 }
 
+
+/* Card section  */
+
 .cardContainer {
+    display: inline-flex;
+    flex-direction: column;
+    width: fit-content;
     border: gray solid 2px;
-    padding: 5px;
-    padding: 10px;
     border-radius: 20px;
-    gap: 5px;
+    overflow: hidden;
+    width: 20%;
 }
 
 .grid {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    padding-top: 10px;
-    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
     gap: 15px;
+    margin: 20px 20px;
+}
+
+.cardBody {
+    padding: 4px;
+}
+
+.readMore {
+    background-color: blue;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.title {
+    font: bold;
+}
+
+.director {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.abstract {
+    font-size: 14px;
+    padding: 10px;
 }
