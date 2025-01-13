@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 function FilmCard({ film }) {
-    const { id, title, director, abstract, image } = film;
+    const { id, title, director, abstract, image, avg_vote } = film;
 
     return (
 
@@ -17,6 +17,9 @@ function FilmCard({ film }) {
                 <p className="abstract">
                     {abstract}
                 </p>
+                <div className='ratings-vote'>
+                    {avg_vote}
+                </div>
                 <Link className='readMore' to={`/films/${id}`}>Read More</Link>
             </div>
         </article >

@@ -10,7 +10,7 @@ function HomePage() {
     function fetchFilms() {
         axios.get('http://localhost:3000/api/movies', {
             params: {
-                title: search
+                search: search
             }
         })
             .then(response => {
