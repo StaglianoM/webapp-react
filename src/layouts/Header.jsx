@@ -6,7 +6,7 @@ function Header() {
     return <header className='navbar'>
         <div className='containerNav'>
             <Link to='/'>
-                <img src="/public/vite.svg" alt="" width={35} />
+                <img src="/src/assets/vite.svg" alt="" width={35} />
             </Link>
             <Nav />
         </div>

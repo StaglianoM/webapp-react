@@ -23,7 +23,7 @@ body {
 }
 
 
-ul {
+li {
     list-style-type: none;
 }
 
@@ -67,6 +67,13 @@ a {
 .grow {
     flex-grow: 1;
     padding-left: 25px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-right: 15px;
 }
 
 

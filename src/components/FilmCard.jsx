@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 
-function FilmCard({ films }) {
-    const { id, title, director, abstract, image } = films;
+function FilmCard({ film }) {
+    const { id, title, director, abstract, image } = film;
 
     return (
 
         <article className="cardContainer">
-            <img src="../../public/movies_cover/inception.jpg" alt="" />
+            <img src="../../movies_cover/inception.jpg" alt="" />
             <div className="cardBody">
                 <h3 className="title">
                     {title}
