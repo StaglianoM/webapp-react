@@ -8,7 +8,7 @@ function HomePage() {
     const [search, setSearch] = useState('')
 
     function fetchFilms() {
-        axios.get('http://localhost:3000/api/movies', {
+        axios.get(`${import.meta.env.VITE_API_URL}/movies`, {
             params: {
                 search: search
             }
@@ -36,16 +36,15 @@ function HomePage() {
     return <>
         <section>
             <div className="container">
-                <div>
+                <div className="titles">
                     <h1>Films</h1>
                     <h2>Anteprima</h2>
                 </div>
-                <form onSubmit={searchFilms}>
+                <form className="searchButton" onSubmit={searchFilms}>
                     <input type="text" placeholder="Cerca Film"
                         value={search} onChange={(e) => setSearch(e.target.value)} />
                     <button>Cerca</button>
                 </form>
-
             </div>
         </section>
         <section>

@@ -67,13 +67,7 @@ a {
 .grow {
     flex-grow: 1;
     padding-left: 25px;
-}
-
-.container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-right: 15px;
+    padding-right: 25px;
 }
 
 
@@ -91,21 +85,24 @@ a {
 
 .grid {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-evenly;
-    gap: 15px;
+    gap: 25px;
     margin: 20px 20px;
 }
 
 .cardBody {
-    padding: 4px;
+    padding: 5px;
 }
 
 .readMore {
+    display: flex;
+    justify-content: center;
     background-color: blue;
     color: white;
     padding: 5px 10px;
     border-radius: 10px;
+    margin-top: 30px;
+    margin: 15 auto;
 }
 
 .title {
@@ -119,4 +116,43 @@ a {
 .abstract {
     font-size: 14px;
     padding: 10px;
+}
+
+/* Button search */
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+
+}
+
+.titles {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.searchButton {
+    display: flex;
+}
+
+.searchButton input {
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.searchButton button {
+    padding: 8px 12px;
+    background-color: #7167fa;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.searchButton button:hover {
+    background-color: #5a54c7;
 }

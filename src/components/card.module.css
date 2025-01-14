@@ -1,0 +1,17 @@
+.containerCard {
+    border: 1px solid #313131;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.StarIcon {
+    width: 25px;
+    color: yellow;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+
+}
