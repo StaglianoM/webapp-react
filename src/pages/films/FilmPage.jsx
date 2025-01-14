@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import StarsRating from '../../components/starsRating';
+import FormReview from '../../components/FormReview';
 
 
 function FilmPage() {
@@ -15,8 +16,7 @@ function FilmPage() {
             .then(res => {
                 const movieData = res.data;
 
-                // Aggiungi l'immagine dal percorso statico basato sul titolo
-                const formattedTitle = movieData.title.toLowerCase().replace(/ /g, '_'); // Rimuove spazi e formatta il titolo
+                const formattedTitle = movieData.title.toLowerCase().replace(/ /g, '_');
                 movieData.image = `/img/movies_cover/${formattedTitle}.jpg`;
 
                 setFilm(movieData);
@@ -65,42 +65,7 @@ function FilmPage() {
                     ) : (
                         <div>Nessuna Recensione</div>
                     )}
-                    <div className={styles.container}>
-                        <div className={styles.form}>
-                            <div>
-                                <strong>
-                                    Aggiungi Recensione
-                                </strong>
-                            </div>
-
-                            <div>
-                                <form className={styles.reviewForm}>
-                                    <div className={styles.flex}>
-                                        <label htmlFor="name">Nome</label>
-                                        <input type="text" placeholder="anonymous" name="name" id="name" />
-                                    </div>
-
-                                    <div>
-                                        <label htmlFor="text">Recensione</label>
-                                        <textarea name="text" id="text" placeholder="Scrivi la tua recensione"></textarea>
-                                    </div>
-
-                                    <div>
-                                        <label htmlFor="vote">Voto</label>
-                                        <select name="vote" id="vote">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                        </select>
-                                    </div>
-
-                                    <button type="submit">Invia</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+                    <FormReview id={id} onSuccess={fetchFilm} />
                 </section>
             </>
         ) : (
