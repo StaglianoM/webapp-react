@@ -5,6 +5,7 @@
     border-radius: 5px;
 }
 
+
 .StarIcon {
     width: 25px;
     color: yellow;
@@ -12,6 +13,6 @@
 
 .flex {
     display: flex;
+    justify-content: flex-end;
     align-items: center;
-
 }

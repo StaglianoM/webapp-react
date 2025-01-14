@@ -10,6 +10,7 @@ const initialFormData = {
 
 function FormReview({ id, onSuccess = () => { } }) {
     const [formData, setFormData] = useState(initialFormData);
+    const [isFormValid, setIsFormValid] = useState(false)
 
     function onFormChange(e) {
         const { name, value } = e.target;
@@ -22,21 +23,33 @@ function FormReview({ id, onSuccess = () => { } }) {
 
     function storeReview(e) {
         e.preventDefault();
+        setIsFormValid(true)
         console.log("Form Submitted:", formData);
+
+
+
+        if (!formData.name || !formData.vote || formData.vote < 1 || formData.vote > 5) {
+
+            console.log('form is not valid')
+            setIsFormValid(false)
+            return
+        }
 
         setFormData(initialFormData);
         onSuccess()
+
         axios.post(`${import.meta.env.VITE_API_URL}/movies/${id}/reviews`, formData)
             .then(res => {
                 console.log(res);
             })
             .catch(err => {
                 console.log(err);
+                setIsFormValid(false)
             });
     }
 
     return (
-        <div className={styles.container}>
+        <div className={styles.containerCard}>
             <div className={styles.form}>
                 <div>
                     <strong>Aggiungi Recensione</strong>
@@ -81,7 +94,9 @@ function FormReview({ id, onSuccess = () => { } }) {
                             <option value="5">5</option>
                         </select>
                     </div>
-
+                    <div className={styles.flex}>
+                        {isFormValid === false && <div> I Dati non sono validi! </div>}
+                    </div>
                     <button type="submit">Invia</button>
                 </form>
             </div>
