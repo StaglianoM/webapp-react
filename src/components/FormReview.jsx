@@ -8,7 +8,7 @@ const initialFormData = {
     text: ""
 };
 
-function FormReview({ id, onSuccess = }) {
+function FormReview({ id, onSuccess = () => { } }) {
     const [formData, setFormData] = useState(initialFormData);
 
     function onFormChange(e) {
