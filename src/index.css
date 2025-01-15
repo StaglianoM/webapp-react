@@ -156,3 +156,8 @@ a {
 .searchButton button:hover {
     background-color: #5a54c7;
 }
+
+
+.cardContainer img {
+    max-height: 300px;
+}

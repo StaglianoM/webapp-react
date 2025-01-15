@@ -25,10 +25,15 @@ function FormReview({ id, onSuccess = () => { } }) {
         e.preventDefault();
         setIsFormValid(true)
         console.log("Form Submitted:", formData);
+        const data = {
+            ...formData,
+            text: formData.text.trim() || undefined,
+            name: formData.name.trim(),
+            vote: parseInt(formData.vote)
+        }
 
 
-
-        if (!formData.name || !formData.vote || formData.vote < 1 || formData.vote > 5) {
+        if (!data.name || !data.vote || data.vote < 1 || data.vote > 5) {
 
             console.log('form is not valid')
             setIsFormValid(false)
@@ -38,7 +43,7 @@ function FormReview({ id, onSuccess = () => { } }) {
         setFormData(initialFormData);
         onSuccess()
 
-        axios.post(`${import.meta.env.VITE_API_URL}/movies/${id}/reviews`, formData)
+        axios.post(`${import.meta.env.VITE_API_URL}/movies/${id}/reviews`, data)
             .then(res => {
                 console.log(res);
             })
@@ -57,7 +62,7 @@ function FormReview({ id, onSuccess = () => { } }) {
 
                 <form className={styles.reviewForm} onSubmit={storeReview}>
                     <div className={styles.flex}>
-                        <label htmlFor="name">Nome</label>
+                        <label htmlFor="name">Nome*</label>
                         <input
                             type="text"
                             placeholder="anonymous"
@@ -80,7 +85,7 @@ function FormReview({ id, onSuccess = () => { } }) {
                     </div>
 
                     <div>
-                        <label htmlFor="vote">Voto</label>
+                        <label htmlFor="vote">Voto*</label>
                         <select
                             name="vote"
                             id="vote"
@@ -94,7 +99,7 @@ function FormReview({ id, onSuccess = () => { } }) {
                             <option value="5">5</option>
                         </select>
                     </div>
-                    <div className={styles.flex}>
+                    <div>
                         {isFormValid === false && <div> I Dati non sono validi! </div>}
                     </div>
                     <button type="submit">Invia</button>
